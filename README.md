@@ -34,6 +34,9 @@ hotfix/*                - 긴급 버그 수정
 release/*               - 배포 준비
 ```
 
+- `타입 / 이슈번호 - 작업요약` 형태로 작성
+  - ex : `feat/#12-swipe-card`, `fix/#45-login-error`
+
 ## Architecture
 
 ```jsx
