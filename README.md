@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# 강원대 핼스장 어플리케이션
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 개요
 
-Currently, two official plugins are available:
+1. 헬스장 사용자들의 트래픽이 몰려 병목현상으로 인해 제대로 운동을 못하는 사람들이 있다.
+2. 가끔 헬스장 오픈 시간이 정해진 시간과는 다른 시간일 때가 있다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 타깃 사용자
 
-## React Compiler
+- 1차: 헬스장 사용을 원하는 사람들
+- 2차: 헬스장을 사용하고 있는 사람들
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 주요 기능
 
-## Expanding the ESLint configuration
+- 헬스장을 현재 사용 중인 인원을 알려주는 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Commit Type 종류
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `feat`: 새로운 기능 추가
+- `fix`: 버그 수정
+- `docs`: 문서 수정
+- `style`: 코드 포맷팅, 세미콜론 누락 등 (동작 변경 없음)
+- `refactor`: 코드 리팩토링
+- `test`: 테스트 코드 추가/수정
+- `chore`: 빌드 작업, 패키지 매니저 설정 등
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Git Flow 브랜치 전략
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+main (또는 master)     - 배포 가능한 상태
+develop                 - 다음 배포를 위한 개발 브랜치
+feature/*               - 새로운 기능 개발
+hotfix/*                - 긴급 버그 수정
+release/*               - 배포 준비
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Architecture
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```jsx
+📦 src
+ ┣ 📂 components           // UI를 구성하는 모든 컴포넌트
+ ┃ ┣ 📜 Header.jsx
+ ┃ ┣ 📜 Button.jsx
+ ┃ ┗ 📜 LoginForm.jsx
+ ┣ 📂 hooks                // 프로젝트에서 사용하는 커스텀 훅 (재사용 로직)
+ ┃ ┣ 📜 useInput.js
+ ┃ ┗ 📜 useToggle.js
+ ┣ 📂 tests                // 모든 테스트 코드
+ ┣ 📜 App.js
+ ┗ 📜 index.js
 ```
