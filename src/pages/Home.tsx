@@ -1,9 +1,16 @@
+import { Card } from "@/components/ui/card";
+import knuIcon from "@/assets/KNUICON.png";
+
 export default function Home() {
     return (
-        <div>
+        <div className="bg-sky-300">
             <header>
-                <div>(아이콘)</div>
-                <div>강원대학교</div>
+                <Card className="items-center bg-sky-300">
+                    <div className="flex gap-10 items-center">
+                        <img src={knuIcon} alt="강원대 로고" className="w-10 h-10" />
+                        <div className="font-bold text-white text-3xl">강원대학교 헬스장 현황</div>
+                    </div>
+                </Card>
             </header>
             <main>
                 <div>
