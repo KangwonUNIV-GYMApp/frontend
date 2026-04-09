@@ -11,16 +11,16 @@ export default function OperationInfoCard({ isOpen }: OperationInfoCardProps) {
     return (
         <Card className="shadow-sm border-slate-100 bg-white/90 backdrop-blur-md text-xl">
             <CardHeader className="pb-2">
-                <CardTitle className="text-2xl flex justify-between items-center text-slate-800">
+                <CardTitle className="text-2xl flex justify-between items-center text-slate-800 px-2">
                     <span className="flex items-center gap-2 font-bold">
                         <Clock className="w-5 h-5 text-sky-500" /> 운영 정보
                     </span>
                     {isOpen ? (
-                        <Badge className="bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 pointer-events-none text-sm px-3 py-1">
+                        <Badge className="bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 pointer-events-none text-lg p-3">
                             운영 중
                         </Badge>
                     ) : (
-                        <Badge variant="destructive" className="pointer-events-none text-sm px-3 py-1">
+                        <Badge variant="destructive" className="pointer-events-none text-lg p-3">
                             운영 종료
                         </Badge>
                     )}

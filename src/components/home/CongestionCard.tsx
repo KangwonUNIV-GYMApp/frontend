@@ -12,7 +12,7 @@ export default function CongestionCard({ isOpen, currentPeople, rawCountText }: 
     // 혼잡도 뱃지 및 색상 로직 처리
     let statusText = "여유";
     let statusColor = "bg-emerald-500 hover:bg-emerald-600";
-    
+
     if (!isOpen) {
         statusText = "-";
         statusColor = "bg-slate-400 hover:bg-slate-500";
@@ -25,8 +25,8 @@ export default function CongestionCard({ isOpen, currentPeople, rawCountText }: 
     }
 
     return (
-        <Card className="shadow-sm border-slate-100 bg-white/90 backdrop-blur-md">
-            <CardHeader className="pb-2">
+        <Card className="shadow-sm border-slate-100 bg-white/90 backdrop-blur-md px-2">
+            <CardHeader>
                 <CardTitle className="text-2xl flex justify-between items-center text-slate-800">
                     <span className="flex items-center gap-2 font-bold">
                         <Users className="w-5 h-5 text-sky-500" /> 현재 이용 현황
