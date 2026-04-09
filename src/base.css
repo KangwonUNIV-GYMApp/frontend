@@ -27,8 +27,8 @@
       outline: none !important;
       -webkit-tap-highlight-color: transparent;
     }
-
     @apply bg-white overflow-auto;
+
   }
 
   html,
